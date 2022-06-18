@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 
 export const SuperHeroesPage = () => {
@@ -6,9 +5,11 @@ export const SuperHeroesPage = () => {
 	const [data, setData] = useState<any[]>([])
 
 	useEffect(() => {
-		axios.get("http://localhost:4000/superheroes").then((res) => {
-			setData(res.data)
-			setIsLoading(false)
+		fetch("http://localhost:4000/superheroes").then((response) => {
+			response.json().then((data) => {
+				setData(data)
+				setIsLoading(false)
+			})
 		})
 	}, [])
 
@@ -20,7 +21,7 @@ export const SuperHeroesPage = () => {
 		<>
 			<h2>Super Heroes Page</h2>
 			{data.map((hero) => {
-				return <div>{hero.name}</div>
+				return <div key={hero.id}>{hero.name}</div>
 			})}
 		</>
 	)
