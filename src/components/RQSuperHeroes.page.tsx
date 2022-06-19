@@ -17,17 +17,13 @@ const useSuperheroData = () => {
 			const { data } = await axios.get("http://localhost:4000/superheroes")
 			return superheroArray.parse(data)
 		},
-		{
-			onError: (err) => console.log("On no some error occured", err),
-			// refetchOnMount: false,
-			// refetchOnWindowFocus: true
-			// staleTime: 30000,
-		}
+		{ enabled: false }
 	)
 }
 
 const RQSuperHeroesPage = () => {
-	const { data, isLoading, isError, error } = useSuperheroData()
+	const { data, isLoading, isFetching, isError, error, refetch } =
+		useSuperheroData()
 
 	if (isError) {
 		return <h2>{JSON.stringify(error)}</h2>
@@ -40,10 +36,15 @@ const RQSuperHeroesPage = () => {
 	return (
 		<>
 			<h2>Super Heroes Page</h2>
+			<button onClick={() => refetch()}>Fetch Heroes</button>
 
-			{data?.map((hero) => {
-				return <div key={hero.id}>{hero.name}</div>
-			})}
+			{isFetching ? (
+				<h2>Refetching hero list</h2>
+			) : (
+				data?.map((hero) => {
+					return <div key={hero.id}>{hero.name}</div>
+				})
+			)}
 		</>
 	)
 }
