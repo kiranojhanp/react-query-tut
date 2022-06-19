@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export const SuperHeroesPage = () => {
+const SuperHeroesPage = () => {
 	const [isLoading, setIsLoading] = useState(true)
 	const [data, setData] = useState<any[]>([])
 
@@ -26,3 +26,5 @@ export const SuperHeroesPage = () => {
 		</>
 	)
 }
+
+export default SuperHeroesPage
