@@ -10,26 +10,33 @@ const superheroSchema = z.object({
 
 const superheroArray = z.array(superheroSchema)
 
+const getSuperHeroes = async () => {
+	const { data } = await axios.get("http://localhost:4000/superheroes")
+	return superheroArray.parse(data)
+}
+
 const useSuperheroData = () => {
-	return useQuery(
-		["super-heroes-query"],
-		async () => {
-			const { data } = await axios.get("http://localhost:4000/superheroes")
-			return superheroArray.parse(data)
+	return useQuery(["super-heroes-query"], getSuperHeroes, {
+		enabled: false,
+		select: (data) => data.map((hero) => hero.name.toUpperCase()),
+		onSuccess: (data) => {
+			console.log("Perform side effect after data fetching", data)
 		},
-		{ enabled: false }
-	)
+		onError: (error) => {
+			console.log("Perform side effect after encountering error", error)
+		},
+	})
 }
 
 const RQSuperHeroesPage = () => {
 	const { data, isLoading, isFetching, isError, error, refetch } =
 		useSuperheroData()
 
-	if (isError) {
-		return <h2>{JSON.stringify(error)}</h2>
+	if (isError && error instanceof Error) {
+		return <pre>{error.message}</pre>
 	}
 
-	if (isLoading) {
+	if (isLoading || isFetching) {
 		return <h2>Loading...</h2>
 	}
 
@@ -38,13 +45,15 @@ const RQSuperHeroesPage = () => {
 			<h2>Super Heroes Page</h2>
 			<button onClick={() => refetch()}>Fetch Heroes</button>
 
-			{isFetching ? (
-				<h2>Refetching hero list</h2>
-			) : (
+			{data?.map((hero) => (
+				<p key={hero}>{hero}</p>
+			))}
+
+			{/* {
 				data?.map((hero) => {
 					return <div key={hero.id}>{hero.name}</div>
 				})
-			)}
+			} */}
 		</>
 	)
 }
