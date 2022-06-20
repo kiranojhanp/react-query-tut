@@ -12,6 +12,9 @@ const RQSuperHeroDetails = lazy(
 	() => import("./components/RQSuperHeroDetails.page")
 )
 const SuperHeroesPage = lazy(() => import("./components/SuperHeroes.page"))
+const DependentQueries = lazy(
+	() => import("./components/DependentQueries.page")
+)
 
 function App() {
 	return (
@@ -34,6 +37,10 @@ function App() {
 					<Routes>
 						<Route path="/super-heroes" element={<SuperHeroesPage />} />
 						<Route path="/rq-parallel" element={<RQParallelQueries />} />
+						<Route
+							path="/rq-dependent"
+							element={<DependentQueries email="kiranojha1226@gmail.com" />}
+						/>
 						<Route
 							path="/rq-dynamic-parallel"
 							element={<DynamicParallel heroIds={[1, 3]} />}
