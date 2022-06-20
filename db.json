@@ -25,5 +25,12 @@
 			"name": "Hulk",
 			"alterEgo": "Bruce Banner"
 		}
+	],
+	"friends": [
+		{ "id": 1, "name": "Kiran Ojha" },
+		{ "id": 2, "name": "Dristi Ojha" },
+		{ "id": 3, "name": "Krishna Ojha" },
+		{ "id": 4, "name": "Dilli Ojha" },
+		{ "id": 5, "name": "Kamal Ojha" }
 	]
 }

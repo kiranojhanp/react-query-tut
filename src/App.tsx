@@ -4,6 +4,10 @@ import "./App.css"
 
 const HomePage = lazy(() => import("./components/Home.page"))
 const RQSuperHeroesPage = lazy(() => import("./components/RQSuperHeroes.page"))
+const RQParallelQueries = lazy(
+	() => import("./components/ParallelQueries.page")
+)
+const DynamicParallel = lazy(() => import("./components/DynamicParellel.page"))
 const RQSuperHeroDetails = lazy(
 	() => import("./components/RQSuperHeroDetails.page")
 )
@@ -29,6 +33,11 @@ function App() {
 					</nav>
 					<Routes>
 						<Route path="/super-heroes" element={<SuperHeroesPage />} />
+						<Route path="/rq-parallel" element={<RQParallelQueries />} />
+						<Route
+							path="/rq-dynamic-parallel"
+							element={<DynamicParallel heroIds={[1, 3]} />}
+						/>
 						<Route path="/rq-super-heroes" element={<RQSuperHeroesPage />}>
 							<Route path=":heroID" element={<RQSuperHeroDetails />} />
 						</Route>
