@@ -4,6 +4,9 @@ import "./App.css"
 
 const HomePage = lazy(() => import("./components/Home.page"))
 const RQSuperHeroesPage = lazy(() => import("./components/RQSuperHeroes.page"))
+const RQSuperHeroDetails = lazy(
+	() => import("./components/RQSuperHeroDetails.page")
+)
 const SuperHeroesPage = lazy(() => import("./components/SuperHeroes.page"))
 
 function App() {
@@ -26,7 +29,9 @@ function App() {
 					</nav>
 					<Routes>
 						<Route path="/super-heroes" element={<SuperHeroesPage />} />
-						<Route path="/rq-super-heroes" element={<RQSuperHeroesPage />} />
+						<Route path="/rq-super-heroes" element={<RQSuperHeroesPage />}>
+							<Route path=":heroID" element={<RQSuperHeroDetails />} />
+						</Route>
 						<Route path="/" element={<HomePage />} />
 					</Routes>
 				</div>
