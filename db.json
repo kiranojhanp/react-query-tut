@@ -39,6 +39,56 @@
       "name": "Scarlet Witch",
       "alterEgo": "Wanda",
       "id": 8
+    },
+    {
+      "name": "The Eagle",
+      "alterEgo": "Khabib nurmagomedov",
+      "id": 9
+    },
+    {
+      "name": "Shazam",
+      "alterEgo": "Billy Batson",
+      "id": 10
+    },
+    {
+      "name": "Shaktiman",
+      "alterEgo": "Kiran Ojha",
+      "id": 11
+    },
+    {
+      "name": "Cute lady",
+      "alterEgo": "Dristi Khanal",
+      "id": 12
+    },
+    {
+      "name": "Hot lady",
+      "alterEgo": "Dristi Khanal",
+      "id": 13
+    },
+    {
+      "name": "Gorgeous lady",
+      "alterEgo": "Dristi Khanal",
+      "id": 14
+    },
+    {
+      "name": "Kiran",
+      "alterEgo": "Kiran",
+      "id": 15
+    },
+    {
+      "name": "wfer",
+      "alterEgo": "rfr",
+      "id": 16
+    },
+    {
+      "name": "ervrv",
+      "alterEgo": "rvve",
+      "id": 17
+    },
+    {
+      "name": "I am awesome",
+      "alterEgo": "You are not",
+      "id": 18
     }
   ],
   "friends": [

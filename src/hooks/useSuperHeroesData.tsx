@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useMutation, useQuery } from "react-query"
+import { useMutation, useQuery, useQueryClient } from "react-query"
 import { z } from "zod"
 
 const superheroSchema = z.object({
@@ -51,5 +51,14 @@ const functionWithValidation =
 	addSuperHeroFunctionSchema.implement(addSuperHeroes)
 
 export const useAddSuperHeroData = () => {
-	return useMutation(functionWithValidation)
+	const queryClient = useQueryClient()
+	return useMutation(functionWithValidation, {
+		onSuccess: (data) => {
+			// queryClient.invalidateQueries("super-heroes")
+			queryClient.setQueryData("super-heroes", (oldQueryData: any) => {
+				const cache = superheroArray.parse(oldQueryData)
+				return [...cache, ...[data]]
+			})
+		},
+	})
 }
