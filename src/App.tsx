@@ -8,6 +8,7 @@ const RQParallelQueries = lazy(
 	() => import("./components/ParallelQueries.page")
 )
 const DynamicParallel = lazy(() => import("./components/DynamicParellel.page"))
+const PaginatedQuery = lazy(() => import("./components/PaginatedQuery.page"))
 const RQSuperHeroDetails = lazy(
 	() => import("./components/RQSuperHeroDetails.page")
 )
@@ -37,6 +38,7 @@ function App() {
 					<Routes>
 						<Route path="/super-heroes" element={<SuperHeroesPage />} />
 						<Route path="/rq-parallel" element={<RQParallelQueries />} />
+						<Route path="/rq-paginated" element={<PaginatedQuery />} />
 						<Route
 							path="/rq-dependent"
 							element={<DependentQueries email="kiranojha1226@gmail.com" />}
