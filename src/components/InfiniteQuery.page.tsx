@@ -50,8 +50,15 @@ const InfiniteQuery = () => {
 					</Fragment>
 				))}
 
-				<button onClick={() => fetchNextPage()} disabled={!hasNextPage}>
-					Load more
+				<button
+					onClick={() => fetchNextPage()}
+					disabled={!hasNextPage || isFetchingNextPage}
+				>
+					{isFetchingNextPage
+						? "Loading more..."
+						: hasNextPage
+						? "Load More"
+						: "Nothing more to load"}
 				</button>
 
 				<div>{isFetching && !isFetchingNextPage ? "Fetching..." : null}</div>
