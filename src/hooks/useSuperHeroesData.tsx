@@ -1,6 +1,9 @@
 import axios from "axios"
 import { useMutation, useQuery, useQueryClient } from "react-query"
 import { z } from "zod"
+// import { request } from "../utils/axios-utils"
+import { setupInterceptorsTo } from "../utils/Interceptors"
+setupInterceptorsTo(axios)
 
 const superheroSchema = z.object({
 	id: z.number().optional(),
@@ -11,7 +14,8 @@ const superheroSchema = z.object({
 const superheroArray = z.array(superheroSchema)
 
 const getSuperHeroes = async () => {
-	const { data } = await axios.get("http://localhost:4000/superheroes")
+	const { data } = await axios.get("/superheroes")
+	// const { data } = await request({ url: "/superheroes" })
 	return superheroArray.parse(data)
 }
 
@@ -43,7 +47,12 @@ const addSuperHeroFunctionSchema = z
 	.returns(z.promise(superheroSchema))
 
 const addSuperHeroes = async (hero: any) => {
-	const { data } = await axios.post("http://localhost:4000/superheroes", hero)
+	const { data } = await axios.post("/superheroes", hero)
+	// const { data } = await request({
+	// 	url: "/superheroes",
+	// 	method: "post",
+	// 	data: hero,
+	// })
 	return superheroSchema.parse(data)
 }
 

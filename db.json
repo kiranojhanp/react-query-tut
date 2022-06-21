@@ -94,6 +94,16 @@
       "name": "Mom",
       "alterEgo": "Krishna Bajgain",
       "id": 19
+    },
+    {
+      "name": "Dad",
+      "alterEgo": "lol",
+      "id": 20
+    },
+    {
+      "name": "I am awesome",
+      "alterEgo": "I am kiran",
+      "id": 21
     }
   ],
   "friends": [
