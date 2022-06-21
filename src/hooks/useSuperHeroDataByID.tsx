@@ -23,7 +23,7 @@ export const useSuperheroDataByID = (heroId: string) => {
 			const heroArray = queryClient.getQueryData("super-heroes") as any[]
 			const hero = heroArray.find((hero) => hero.id === parseInt(heroId))
 			if (!hero) return undefined
-			return hero
+			return superheroSchema.parse(hero)
 		},
 	})
 }
