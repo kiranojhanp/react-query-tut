@@ -2,16 +2,15 @@ import { Link, Outlet } from "react-router-dom"
 import { useSuperheroDataOnMount } from "../hooks/useSuperHeroesData"
 
 const RQSuperHeroesPage = () => {
-	const { data, isLoading, isFetching, isError, error, refetch } =
-		useSuperheroDataOnMount()
+	const { data, isLoading, isError, error } = useSuperheroDataOnMount()
 
 	if (isError && error instanceof Error) return <pre>{error.message}</pre>
-	if (isLoading || isFetching) return <h2>Loading...</h2>
+	if (isLoading) return <h2>Loading...</h2>
 	return (
 		<div className="grid-2">
 			<div>
 				<h2>Super Heroes Page</h2>
-				<button onClick={() => refetch()}>Fetch Heroes</button>
+				{/* <button onClick={() => refetch()}>Fetch Heroes</button> */}
 				<br />
 				{data?.map((hero) => {
 					return (

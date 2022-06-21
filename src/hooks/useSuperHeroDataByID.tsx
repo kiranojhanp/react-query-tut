@@ -1,5 +1,5 @@
 import axios from "axios"
-import { QueryFunctionContext, useQuery } from "react-query"
+import { QueryFunctionContext, useQuery, useQueryClient } from "react-query"
 import { z } from "zod"
 
 const superheroSchema = z.object({
@@ -16,12 +16,14 @@ const getSuperHeroByID = async ({ queryKey }: QueryFunctionContext) => {
 }
 
 export const useSuperheroDataByID = (heroId: string) => {
-	return useQuery(["super-heroes-query-by-id", heroId], getSuperHeroByID, {
-		onSuccess: (data) => {
-			// console.log("Perform side effect after data fetching", data)
-		},
-		onError: (error) => {
-			// console.log("Perform side effect after encountering error", error)
+	const queryClient = useQueryClient()
+
+	return useQuery(["super-heroes-by-id", heroId], getSuperHeroByID, {
+		initialData: () => {
+			const heroArray = queryClient.getQueryData("super-heroes") as any[]
+			const hero = heroArray.find((hero) => hero.id === parseInt(heroId))
+			if (!hero) return undefined
+			return hero
 		},
 	})
 }

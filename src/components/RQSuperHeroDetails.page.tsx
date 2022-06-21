@@ -3,12 +3,12 @@ import { useSuperheroDataByID } from "../hooks/useSuperHeroDataByID"
 
 const RQSuperHeroDetails = () => {
 	let { heroID } = useParams()
-	const { data, isLoading, isFetching, isError, error } = useSuperheroDataByID(
+	const { data, isLoading, isError, error } = useSuperheroDataByID(
 		heroID as string
 	)
 
 	if (isError && error instanceof Error) return <pre>{error.message}</pre>
-	if (isLoading || isFetching) return <h2>Loading...</h2>
+	if (isLoading) return <h2>Loading...</h2>
 
 	return (
 		<div>

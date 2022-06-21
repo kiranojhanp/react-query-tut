@@ -15,7 +15,7 @@ const getSuperHeroes = async () => {
 	return superheroArray.parse(data)
 }
 
-const useSuperheroData = () => {
+export const useSuperheroData = () => {
 	return useQuery("super-heroes-query", getSuperHeroes, {
 		enabled: false,
 		select: (data) => data.map((hero) => hero.name),
@@ -34,15 +34,5 @@ const useSuperheroData = () => {
  */
 
 export const useSuperheroDataOnMount = () => {
-	return useQuery("super-heroes-query", getSuperHeroes, {
-		enabled: false,
-		onSuccess: (data) => {
-			// console.log("Perform side effect after data fetching", data)
-		},
-		onError: (error: Error | undefined) => {
-			// console.log("Perform side effect after encountering error", error)
-		},
-	})
+	return useQuery("super-heroes", getSuperHeroes)
 }
-
-export default useSuperheroData
