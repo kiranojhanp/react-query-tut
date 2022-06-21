@@ -1,9 +1,9 @@
 import axios from "axios"
-import { useQuery } from "react-query"
+import { useMutation, useQuery } from "react-query"
 import { z } from "zod"
 
 const superheroSchema = z.object({
-	id: z.number(),
+	id: z.number().optional(),
 	name: z.string(),
 	alterEgo: z.string(),
 })
@@ -35,4 +35,21 @@ export const useSuperheroData = () => {
 
 export const useSuperheroDataOnMount = () => {
 	return useQuery("super-heroes", getSuperHeroes)
+}
+
+const addSuperHeroFunctionSchema = z
+	.function()
+	.args(superheroSchema)
+	.returns(z.promise(superheroSchema))
+
+const addSuperHeroes = async (hero: any) => {
+	const { data } = await axios.post("http://localhost:4000/superheroes", hero)
+	return superheroSchema.parse(data)
+}
+
+const functionWithValidation =
+	addSuperHeroFunctionSchema.implement(addSuperHeroes)
+
+export const useAddSuperHeroData = () => {
+	return useMutation(functionWithValidation)
 }

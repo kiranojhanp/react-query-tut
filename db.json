@@ -1,58 +1,116 @@
 {
-	"superheroes": [
-		{
-			"id": 1,
-			"name": "Batman",
-			"alterEgo": "Bruce Wayne"
-		},
-		{
-			"id": 2,
-			"name": "Superman",
-			"alterEgo": "Clark Kent"
-		},
-		{
-			"id": 3,
-			"name": "Wonder Woman",
-			"alterEgo": "Princess Diana"
-		},
-		{
-			"id": 4,
-			"name": "Iron Man",
-			"alterEgo": "Tony Stark"
-		},
-		{
-			"id": 5,
-			"name": "Hulk",
-			"alterEgo": "Bruce Banner"
-		}
-	],
-	"friends": [
-		{ "id": 1, "name": "Kiran Ojha" },
-		{ "id": 2, "name": "Dristi Ojha" },
-		{ "id": 3, "name": "Krishna Ojha" },
-		{ "id": 4, "name": "Dilli Ojha" },
-		{ "id": 5, "name": "Kamal Ojha" }
-	],
-	"users": [
-		{
-			"id": "kiranojha1226@gmail.com",
-			"channelId": "codemandu"
-		}
-	],
-	"channels": [
-		{
-			"id": "codemandu",
-			"courses": ["react", "svelte", "nodejs"]
-		}
-	],
-	"colors": [
-		{ "id": 1, "label": "red" },
-		{ "id": 2, "label": "blue" },
-		{ "id": 3, "label": "green" },
-		{ "id": 4, "label": "yellow" },
-		{ "id": 5, "label": "black" },
-		{ "id": 6, "label": "white" },
-		{ "id": 7, "label": "orange" },
-		{ "id": 8, "label": "purple" }
-	]
+  "superheroes": [
+    {
+      "id": 1,
+      "name": "Batman",
+      "alterEgo": "Bruce Wayne"
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "alterEgo": "Clark Kent"
+    },
+    {
+      "id": 3,
+      "name": "Wonder Woman",
+      "alterEgo": "Princess Diana"
+    },
+    {
+      "id": 4,
+      "name": "Iron Man",
+      "alterEgo": "Tony Stark"
+    },
+    {
+      "id": 5,
+      "name": "Hulk",
+      "alterEgo": "Bruce Banner"
+    },
+    {
+      "name": "Kiran",
+      "alterEgo": "Kiran Ojha",
+      "id": 6
+    },
+    {
+      "name": "The Flash",
+      "alterEgo": "Barry Allen",
+      "id": 7
+    },
+    {
+      "name": "Scarlet Witch",
+      "alterEgo": "Wanda",
+      "id": 8
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "name": "Kiran Ojha"
+    },
+    {
+      "id": 2,
+      "name": "Dristi Ojha"
+    },
+    {
+      "id": 3,
+      "name": "Krishna Ojha"
+    },
+    {
+      "id": 4,
+      "name": "Dilli Ojha"
+    },
+    {
+      "id": 5,
+      "name": "Kamal Ojha"
+    }
+  ],
+  "users": [
+    {
+      "id": "kiranojha1226@gmail.com",
+      "channelId": "codemandu"
+    }
+  ],
+  "channels": [
+    {
+      "id": "codemandu",
+      "courses": [
+        "react",
+        "svelte",
+        "nodejs"
+      ]
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "label": "red"
+    },
+    {
+      "id": 2,
+      "label": "blue"
+    },
+    {
+      "id": 3,
+      "label": "green"
+    },
+    {
+      "id": 4,
+      "label": "yellow"
+    },
+    {
+      "id": 5,
+      "label": "black"
+    },
+    {
+      "id": 6,
+      "label": "white"
+    },
+    {
+      "id": 7,
+      "label": "orange"
+    },
+    {
+      "id": 8,
+      "label": "purple"
+    }
+  ]
 }
