@@ -89,6 +89,11 @@
       "name": "I am awesome",
       "alterEgo": "You are not",
       "id": 18
+    },
+    {
+      "name": "Mom",
+      "alterEgo": "Krishna Bajgain",
+      "id": 19
     }
   ],
   "friends": [
