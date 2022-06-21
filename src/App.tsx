@@ -4,6 +4,7 @@ import "./App.css"
 
 const HomePage = lazy(() => import("./components/Home.page"))
 const RQSuperHeroesPage = lazy(() => import("./components/RQSuperHeroes.page"))
+const InfiniteQuery = lazy(() => import("./components/InfiniteQuery.page"))
 const RQParallelQueries = lazy(
 	() => import("./components/ParallelQueries.page")
 )
@@ -39,6 +40,7 @@ function App() {
 						<Route path="/super-heroes" element={<SuperHeroesPage />} />
 						<Route path="/rq-parallel" element={<RQParallelQueries />} />
 						<Route path="/rq-paginated" element={<PaginatedQuery />} />
+						<Route path="/rq-infinite" element={<InfiniteQuery />} />
 						<Route
 							path="/rq-dependent"
 							element={<DependentQueries email="kiranojha1226@gmail.com" />}
